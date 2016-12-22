@@ -122,7 +122,7 @@ function checkRegistration(request, registerData) {
     catch (e) {
         return {errorMessage: "Invalid clientData: not a valid JSON object"}
     }
-    if (registerData.challenge !== request.challenge)
+    if (clientDataObj.challenge !== request.challenge)
         return {errorMessage: "Invalid challenge: not the one provided"};
 
     // Parse registrationData.

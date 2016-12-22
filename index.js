@@ -122,7 +122,7 @@ function checkRegistration(request, registerData) {
     catch (e) {
         return {errorMessage: "Invalid clientData: not a valid JSON object"}
     }
-    if (clientDataObj.challenge !== request.challenge)
+    if (registerData.challenge !== request.challenge)
         return {errorMessage: "Invalid challenge: not the one provided"};
 
     // Parse registrationData.
@@ -154,7 +154,6 @@ function checkRegistration(request, registerData) {
     else
         return {errorMessage: "Invalid signature."};
 }
-
 
 // Check signature data.
 // request: {version, appId, challenge, keyHandle} - from user session, kept on server.
